@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - mydb@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="mydb">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="phpmyadmin"/>
+    <schema id="7" parent="1" name="test"/>
+    <table id="8" parent="2" name="aluno"/>
+    <table id="9" parent="2" name="aluno_faz_curso"/>
+    <table id="10" parent="2" name="atendimento"/>
+    <table id="11" parent="2" name="atendimento_possui_aluno"/>
+    <table id="12" parent="2" name="atendimento_possui_disciplina"/>
+    <table id="13" parent="2" name="atendimento_possui_pedagogo"/>
+    <table id="14" parent="2" name="atendimento_possui_professor"/>
+    <table id="15" parent="2" name="curso"/>
+    <table id="16" parent="2" name="curso_oferta_disciplina"/>
+    <table id="17" parent="2" name="departamento"/>
+    <table id="18" parent="2" name="disciplina"/>
+    <table id="19" parent="2" name="ministra_em"/>
+    <table id="20" parent="2" name="pedagogo"/>
+    <table id="21" parent="2" name="pedagogo_has_curso"/>
+    <table id="22" parent="2" name="professor"/>
+    <column id="23" parent="8" name="matricula">
+      <Position>1</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="8" name="ano_Periodo">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="25" parent="8" name="nome">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="26" parent="8" name="email">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="27" parent="8" name="nascimento">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <key id="28" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>matricula</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="29" parent="9" name="Curso_idCurso">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="9" name="Aluno_matricula">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="31" parent="9" name="fk_Curso_has_Aluno_Aluno1_idx">
+      <ColNames>Aluno_matricula</ColNames>
+    </index>
+    <index id="32" parent="9" name="fk_Curso_has_Aluno_Curso1_idx">
+      <ColNames>Curso_idCurso</ColNames>
+    </index>
+    <key id="33" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Curso_idCurso
+Aluno_matricula</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="34" parent="9" name="fk_Curso_has_Aluno_Curso1">
+      <ColNames>Curso_idCurso</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>curso</RefTableName>
+      <RefColNames>idCurso</RefColNames>
+    </foreign-key>
+    <foreign-key id="35" parent="9" name="fk_Curso_has_Aluno_Aluno1">
+      <ColNames>Aluno_matricula</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>aluno</RefTableName>
+      <RefColNames>matricula</RefColNames>
+    </foreign-key>
+    <column id="36" parent="10" name="idAtendimento">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="10" name="sobreAtendimento">
+      <Position>2</Position>
+      <DataType>longtext|0</DataType>
+    </column>
+    <column id="38" parent="10" name="feedback">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="39" parent="10" name="quemDemandou">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="40" parent="10" name="encaminhamento">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <key id="41" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idAtendimento</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="42" parent="11" name="Atendimento_idAtendimento">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="11" name="Aluno_matricula">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="44" parent="11" name="fk_Atendimento_has_Aluno_Aluno1_idx">
+      <ColNames>Aluno_matricula</ColNames>
+    </index>
+    <index id="45" parent="11" name="fk_Atendimento_has_Aluno_Atendimento1_idx">
+      <ColNames>Atendimento_idAtendimento</ColNames>
+    </index>
+    <key id="46" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Atendimento_idAtendimento
+Aluno_matricula</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="47" parent="11" name="fk_Atendimento_has_Aluno_Atendimento1">
+      <ColNames>Atendimento_idAtendimento</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>atendimento</RefTableName>
+      <RefColNames>idAtendimento</RefColNames>
+    </foreign-key>
+    <foreign-key id="48" parent="11" name="fk_Atendimento_has_Aluno_Aluno1">
+      <ColNames>Aluno_matricula</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>aluno</RefTableName>
+      <RefColNames>matricula</RefColNames>
+    </foreign-key>
+    <column id="49" parent="12" name="Atendimento_idAtendimento">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="12" name="Disciplina_idDisciplina">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="51" parent="12" name="fk_Atendimento_has_Disciplina_Atendimento1_idx">
+      <ColNames>Atendimento_idAtendimento</ColNames>
+    </index>
+    <index id="52" parent="12" name="fk_Atendimento_has_Disciplina_Disciplina1_idx">
+      <ColNames>Disciplina_idDisciplina</ColNames>
+    </index>
+    <key id="53" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Atendimento_idAtendimento
+Disciplina_idDisciplina</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="54" parent="12" name="fk_Atendimento_has_Disciplina_Atendimento1">
+      <ColNames>Atendimento_idAtendimento</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>atendimento</RefTableName>
+      <RefColNames>idAtendimento</RefColNames>
+    </foreign-key>
+    <foreign-key id="55" parent="12" name="fk_Atendimento_has_Disciplina_Disciplina1">
+      <ColNames>Disciplina_idDisciplina</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>disciplina</RefTableName>
+      <RefColNames>idDisciplina</RefColNames>
+    </foreign-key>
+    <column id="56" parent="13" name="Pedagogo_siape">
+      <Position>1</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="13" name="Atendimento_idAtendimento">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="58" parent="13" name="fk_Pedagogo_has_Atendimento_Atendimento1_idx">
+      <ColNames>Atendimento_idAtendimento</ColNames>
+    </index>
+    <index id="59" parent="13" name="fk_Pedagogo_has_Atendimento_Pedagogo1_idx">
+      <ColNames>Pedagogo_siape</ColNames>
+    </index>
+    <key id="60" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Atendimento_idAtendimento
+Pedagogo_siape</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="61" parent="13" name="fk_Pedagogo_has_Atendimento_Pedagogo1">
+      <ColNames>Pedagogo_siape</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>pedagogo</RefTableName>
+      <RefColNames>siape</RefColNames>
+    </foreign-key>
+    <foreign-key id="62" parent="13" name="fk_Pedagogo_has_Atendimento_Atendimento1">
+      <ColNames>Atendimento_idAtendimento</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>atendimento</RefTableName>
+      <RefColNames>idAtendimento</RefColNames>
+    </foreign-key>
+    <column id="63" parent="14" name="Atendimento_idAtendimento">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="64" parent="14" name="Professor_siape">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="65" parent="14" name="fk_Atendimento_has_Professor_Atendimento1_idx">
+      <ColNames>Atendimento_idAtendimento</ColNames>
+    </index>
+    <index id="66" parent="14" name="fk_Atendimento_has_Professor_Professor1_idx">
+      <ColNames>Professor_siape</ColNames>
+    </index>
+    <key id="67" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Atendimento_idAtendimento
+Professor_siape</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="68" parent="14" name="fk_Atendimento_has_Professor_Atendimento1">
+      <ColNames>Atendimento_idAtendimento</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>atendimento</RefTableName>
+      <RefColNames>idAtendimento</RefColNames>
+    </foreign-key>
+    <foreign-key id="69" parent="14" name="fk_Atendimento_has_Professor_Professor1">
+      <ColNames>Professor_siape</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>professor</RefTableName>
+      <RefColNames>siape</RefColNames>
+    </foreign-key>
+    <column id="70" parent="15" name="idCurso">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="71" parent="15" name="nome">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="72" parent="15" name="Departamento_idDepartamento">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="73" parent="15" name="fk_Curso_Departamento1_idx">
+      <ColNames>Departamento_idDepartamento</ColNames>
+    </index>
+    <key id="74" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idCurso
+Departamento_idDepartamento</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="75" parent="15" name="fk_Curso_Departamento1">
+      <ColNames>Departamento_idDepartamento</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>departamento</RefTableName>
+      <RefColNames>idDepartamento</RefColNames>
+    </foreign-key>
+    <column id="76" parent="16" name="Curso_idCurso">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="77" parent="16" name="Disciplina_idDisciplina">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="78" parent="16" name="fk_Curso_has_Disciplina_Curso1_idx">
+      <ColNames>Curso_idCurso</ColNames>
+    </index>
+    <index id="79" parent="16" name="fk_Curso_has_Disciplina_Disciplina1_idx">
+      <ColNames>Disciplina_idDisciplina</ColNames>
+    </index>
+    <key id="80" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Curso_idCurso
+Disciplina_idDisciplina</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="81" parent="16" name="fk_Curso_has_Disciplina_Curso1">
+      <ColNames>Curso_idCurso</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>curso</RefTableName>
+      <RefColNames>idCurso</RefColNames>
+    </foreign-key>
+    <foreign-key id="82" parent="16" name="fk_Curso_has_Disciplina_Disciplina1">
+      <ColNames>Disciplina_idDisciplina</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>disciplina</RefTableName>
+      <RefColNames>idDisciplina</RefColNames>
+    </foreign-key>
+    <column id="83" parent="17" name="idDepartamento">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="84" parent="17" name="nome">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <key id="85" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idDepartamento</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="86" parent="18" name="idDisciplina">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="87" parent="18" name="nome">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <key id="88" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idDisciplina</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="89" parent="19" name="Professor_siape">
+      <Position>1</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="90" parent="19" name="Curso_idCurso">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="91" parent="19" name="fk_Professor_has_Curso_Curso1_idx">
+      <ColNames>Curso_idCurso</ColNames>
+    </index>
+    <index id="92" parent="19" name="fk_Professor_has_Curso_Professor1_idx">
+      <ColNames>Professor_siape</ColNames>
+    </index>
+    <key id="93" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Professor_siape
+Curso_idCurso</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="94" parent="19" name="fk_Professor_has_Curso_Professor1">
+      <ColNames>Professor_siape</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>professor</RefTableName>
+      <RefColNames>siape</RefColNames>
+    </foreign-key>
+    <foreign-key id="95" parent="19" name="fk_Professor_has_Curso_Curso1">
+      <ColNames>Curso_idCurso</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>curso</RefTableName>
+      <RefColNames>idCurso</RefColNames>
+    </foreign-key>
+    <column id="96" parent="20" name="siape">
+      <Position>1</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="97" parent="20" name="nome">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="98" parent="20" name="nascimento">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="99" parent="20" name="usuario">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="100" parent="20" name="senha">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <key id="101" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>siape</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="102" parent="21" name="Pedagogo_siape">
+      <Position>1</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="103" parent="21" name="Curso_idCurso">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="104" parent="21" name="fk_Pedagogo_has_Curso_Curso1_idx">
+      <ColNames>Curso_idCurso</ColNames>
+    </index>
+    <index id="105" parent="21" name="fk_Pedagogo_has_Curso_Pedagogo1_idx">
+      <ColNames>Pedagogo_siape</ColNames>
+    </index>
+    <key id="106" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Pedagogo_siape
+Curso_idCurso</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="107" parent="21" name="fk_Pedagogo_has_Curso_Pedagogo1">
+      <ColNames>Pedagogo_siape</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>pedagogo</RefTableName>
+      <RefColNames>siape</RefColNames>
+    </foreign-key>
+    <foreign-key id="108" parent="21" name="fk_Pedagogo_has_Curso_Curso1">
+      <ColNames>Curso_idCurso</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>curso</RefTableName>
+      <RefColNames>idCurso</RefColNames>
+    </foreign-key>
+    <column id="109" parent="22" name="siape">
+      <Position>1</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="110" parent="22" name="nome">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="111" parent="22" name="nascimento">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="112" parent="22" name="Departamento_idDepartamento">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="113" parent="22" name="fk_Professor_Departamento_idx">
+      <ColNames>Departamento_idDepartamento</ColNames>
+    </index>
+    <key id="114" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>siape
+Departamento_idDepartamento</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="115" parent="22" name="fk_Professor_Departamento">
+      <ColNames>Departamento_idDepartamento</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>departamento</RefTableName>
+      <RefColNames>idDepartamento</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

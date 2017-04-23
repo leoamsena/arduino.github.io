@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+</head>
+<body>
+<script src="script/jquery.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#bt_produto").click(function(){
+            $("#div_produtos").load("Controller/Dispatcher.php?classe=Produto&acao=listar");
+        });
+
+    });
+
+</script>
+
+<div id="bt_produto" style="background-color: #ddd; border-radius: 3px; padding: 5px; display: inline;" >Obter Produtos</div>
+
+<div style="margin-top: 30px">Lista de Produtos:</div>
+<div id="div_produtos">
+
+</div>
+
+
+</body>
+</html>
