@@ -92,8 +92,4 @@ class Professor
     {
         $this->Departamento_idDepartamento = $Departamento_idDepartamento;
     }
-
-
-
-
 }

@@ -11,6 +11,7 @@ class Pedagogo
     private $siape;
     private $nome;
     private $nascimento;
+    private $email;
     private $usuario;
     private $senha;
 
@@ -23,11 +24,12 @@ class Pedagogo
      * @param $usuario
      * @param $senha
      */
-    public function __construct($siape, $nome, $nascimento, $usuario, $senha)
+    public function __construct($siape, $nome, $nascimento, $email, $usuario, $senha)
     {
         $this->siape = $siape;
         $this->nome = $nome;
         $this->nascimento = $nascimento;
+        $this->email = $email;
         $this->usuario = $usuario;
         $this->senha = $senha;
     }
@@ -79,6 +81,22 @@ class Pedagogo
     public function setNascimento($nascimento)
     {
         $this->nascimento = $nascimento;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
     }
 
     /**

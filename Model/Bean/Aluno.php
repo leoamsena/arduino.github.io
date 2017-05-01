@@ -15,6 +15,19 @@ class Aluno
     private $nascimento;
     private $aluno_faz_curso;
 
+    /*
+    public function __construct()
+    {
+        if(func_num_args() == 6) {
+            $this->matricula = func_get_arg(0);
+            $this->ano_Periodo = func_get_arg(1);
+            $this->nome = func_get_arg(2);
+            $this->email = func_get_arg(3);
+            $this->nascimento = func_get_arg(4);
+            $this->aluno_faz_curso = func_get_arg(5);
+        }
+    }*/
+
     /**
      * Aluno constructor.
      *
@@ -130,6 +143,4 @@ class Aluno
     {
         $this->aluno_faz_curso = $aluno_faz_curso;
     }
-
-
 }

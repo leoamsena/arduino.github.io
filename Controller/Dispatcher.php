@@ -4,18 +4,21 @@
  * @author Luis Araujo
  * @version 1.0
  */
-require_once("includes/Conexao.php");
+//require_once("includes/Conexao.php");
 
 $metodo = $_GET['acao'];
 $classe = $_GET['classe'];
-$controllercClasse = "Controller".$classe;
+$controllerClasse = "Controller".$classe;
 
-//Url Controller
-$urlController = "../Controller/" .$controllercClasse. ".php";
-require_once($urlController);
+//Require Controller
+require_once("../Controller/" .$controllerClasse. ".php");
 
-//Instancia o objeto do tipo
-$objController = new $controllercClasse();
+/*
+echo var_dump($_POST);
+echo "<br/>";
+echo "Classe == ".$classe." | Metodo == ".$metodo;
+echo "<br/>";
+*/
 
-//Chamanda de método
-$lista = $objController->$metodo();
+//Chamada do metodo
+$controllerClasse::getInstance()->$metodo();

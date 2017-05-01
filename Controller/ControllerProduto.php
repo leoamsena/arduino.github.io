@@ -32,7 +32,7 @@ class ControllerProduto {
 
     public function listar(){
 
-        Conexao::conectar();
+
 
         $produtoDao = new ProdutoDAO();
         $lista = $produtoDao->listarTudo();

@@ -11,5 +11,8 @@ class Atendimento
     private $idAtendimento;
     private $sobreAtendimento;
     private $feedback;
+    private $quemMandou;
+    private $encaminhamento;
+    //private $
 
 }
