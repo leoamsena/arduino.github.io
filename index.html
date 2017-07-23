@@ -1,28 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title></title>
+    <meta charset="UTF-8">
+    <title>Iot Léo</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css" rel="stylesheet">
+        body{
+            background-image: url(https://s-media-cache-ak0.pinimg.com/originals/e7/5b/10/e75b10cfa3456f228a2da876a6022d46.jpg);
+        }
+        .lampada{
+            height: 50vh;
+            width: 45vw;
 
+            max-width: 100% !important;
+        }
+    </style>
 </head>
 <body>
-<script src="script/jquery.js"></script>
-<script>
-    $(document).ready(function() {
-        $("#bt_produto").click(function(){
-            $("#div_produtos").load("Controller/Dispatcher.php?classe=Produto&acao=listar");
-        });
-
-    });
-
-</script>
-
-<div id="bt_produto" style="background-color: #ddd; border-radius: 3px; padding: 5px; display: inline;" >Obter Produtos</div>
-
-<div style="margin-top: 30px">Lista de Produtos:</div>
-<div id="div_produtos">
+<header class="col-md-12 col-sm-12 col-lg-12 h1 text-center mark">Iot Quarto Léo</header>
+<div class="text-center col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-4">
+    <img src="https://arduinolivre.files.wordpress.com/2013/08/lampada_desligada.png" class="lampada"><br/><br/>
+    <a href="http://192.168.0.90/cdluz">
+        <button class="btn default-btn btn-block">LIGAR</button>
+    </a>
 
 </div>
-
-
+<div  class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-2 col-lg-4">CONTROLE</div>
 </body>
 </html>
